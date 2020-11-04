@@ -2,6 +2,7 @@ module Test_CMP;
 reg [31:0] in1, in2;
 wire [31:0] Result;
 wire [3:0] Flag;
+wire S;
 initial
 begin
 $display($time, " TestMy Design");
@@ -14,9 +15,9 @@ in1=2; in2=3;
 end
 initial
 begin
-$monitor($time, " 1stnum.=%d, 2ndnum.=%d, Flag=%b", in1, in2, Flag);
+$monitor($time, " in1.=%d, in2.=%d, Result=%d, Flag=%b", in1, in2, Result, Flag);
 end
-CMP cmp(in1, in2, Result,Flag); 
+CMP cmp(in1, in2, Result,Flag,S); 
 
 endmodule
 

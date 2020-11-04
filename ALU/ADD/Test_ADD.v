@@ -1,20 +1,24 @@
-module Test_ADD;
-reg [31:0] in1, in2;
+module Test_ADD;	//[N, Z, C, V}]
+reg [31:0] In1, In2;
+reg S;
+reg [3:0] Flag;
 wire [31:0] Result;
+wire [3:0] New_Flag;
+
 initial
 begin
-$display($time, " TestMy Design");
-in1=2; in2=3;
-#10 in1=1; in2=3; 
-#10 in1=6; in2=2; 
-#10 in1=5; in2=9; 
-#10 in1=10; in2=10; 
-#10 in1=10; in2=6; 
+
+In1=2; In2=3; Flag=4'b0000; 
+#10 In1=1; In2=-3; S=1; 
+#10 In1=-6; In2=-2; S=0;
+#10 In1=32'b11111111111111111111111111111111; In2=9; S=1;
+#10 In1=10; In2=10; S=1;
+#10 In1=4; In2=-4; S=1;
 end
 initial
 begin
-$monitor($time, " 1stnum.=%d, 2ndnum.=%d, Result=%d", in1, in2, Result);
+$monitor($time, " In1.=%d, In2.=%d, Result=%d, Flag=%b", In1, In2, Result, New_Flag);
 end
-ADD MUT(in1, in2, Result);
-// Add MUT(.Sum(Result), .A(in1), .B(in2));
+ADD add(In1, In2, Result,Flag,S,New_Flag);
+
 endmodule

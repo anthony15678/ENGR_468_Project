@@ -7,5 +7,5 @@ output [3:0] New_Flag;
 wire Carry;
 assign {Carry,Result} = In1 + In2;
 //Flag assignments
-SET_FLAG(In1, In2, Result,Flag,S,New_Flag,Carry)
+SET_FLAG(In1, In2, Result,Flag,S,New_Flag,Carry);
 endmodule

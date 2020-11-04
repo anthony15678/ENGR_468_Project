@@ -2,6 +2,8 @@ module Test_ROR;
 reg [31:0] in1;
 reg [3:0] N;
 wire [31:0] Result;
+wire [3:0] Flag;
+wire S;
 initial
 begin
 $display($time, " TestMy Design");
@@ -14,9 +16,9 @@ in1=2; N=3;
 end
 initial
 begin
-$monitor($time, " 1stnum.=%d, 2ndnum.=%d, Result=%d", in1, N, Result);
+$monitor($time, " in1.=%d, in2.=%d, Result=%d, Flag=%b", in1, in2, Result, Flag);
 end
-ROR MUT(in1, N, Result);
-// Add MUT(.Sum(Result), .A(in1), .B(in2));
+ROR ror(in1, N, Result,Flag,S);
+
 endmodule
 

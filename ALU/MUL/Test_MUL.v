@@ -1,9 +1,11 @@
 module Test_MUL;
 reg [31:0] in1, in2;
 wire [31:0] Result;
+wire [3:0] Flag;
+wire S;
 initial
 begin
-$display($time, " TestMy Design");
+
 in1=2; in2=3;
 #10 in1=1; in2=3; 
 #10 in1=6; in2=2; 
@@ -13,9 +15,9 @@ in1=2; in2=3;
 end
 initial
 begin
-$monitor($time, " 1stnum.=%d, 2ndnum.=%d, Result=%d", in1, in2, Result);
+$monitor($time, " in1.=%d, in2.=%d, Result=%d, Flag=%b", in1, in2, Result, Flag);
 end
-MUL MUT(in1, in2, Result);
+MUL mul(in1, in2, Result,Flag,S);
 // Add MUT(.Sum(Result), .A(in1), .B(in2));
 endmodule
 
