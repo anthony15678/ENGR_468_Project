@@ -1,9 +1,9 @@
 module Test_MUL;	//[N, Z, C, V}]
-reg [31:0] In1;
-reg [31:0] In2;
+reg signed [31:0] In1;
+reg signed [31:0] In2;
 reg S;
 reg [3:0] Flag;
-wire [31:0] Result;
+wire signed [31:0] Result;
 wire [3:0] New_Flag;
 
 initial

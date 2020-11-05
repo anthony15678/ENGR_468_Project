@@ -1,6 +1,6 @@
 module Test_LSR;	//[N, Z, C, V}]
 reg [31:0] In1;
-reg [3:0] In2;
+reg signed [3:0] In2;
 reg S;
 reg [3:0] Flag;
 wire [31:0] Result;
