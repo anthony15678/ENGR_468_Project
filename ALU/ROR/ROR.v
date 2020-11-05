@@ -11,5 +11,5 @@ wire Carry;
 assign {Result,Carry} = (In1 >> In2) | (In1 << (32-In2));
 
 //Flag assignments
-SET_FLAG(In1, In2, Result, Flag, S, New_Flag, Carry)
+SET_FLAG set(In1, In2, Result,Flag,S,New_Flag,Carry);
 endmodule
