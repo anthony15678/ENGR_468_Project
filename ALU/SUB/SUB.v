@@ -1,8 +1,15 @@
-module SUB(x, y, out);
+module SUB(In1, In2, Result, Flag, S, New_Flag);
 
-input [31:0] x,y;
-output [31:0] out;
+input signed [31:0] In1, In2;
+input [3:0] Flag;
+input S;
+output signed [31:0] Result;
+wire Carry;
 
-assign out = a - b;
+assign Result In1 - In2;
+//assign Result = (In1[31]) ? ~In1 + 1b'1 + In2 : (In2[31]) ? In1 + ~In2 + 1b'1 : 0;
+//assign Result = (In1[31]) ? ~In1 + 1b'1 : (In2[31]) ? ~In2 + 1b'1;
+
+SET_FLAG set(In1, In2, Result, Flag, S, New_Flag, Carry);
 
 endmodule
